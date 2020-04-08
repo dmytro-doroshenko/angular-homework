@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 import {PostComponent} from '../components/post/post.component';
 import { CommentComponent } from '../components/comment/comment.component';
+import { UserComponent } from '../components/user/user.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { CommentComponent } from '../components/comment/comment.component';
     AppComponent,
     PostComponent,
     CommentComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
