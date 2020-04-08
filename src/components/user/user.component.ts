@@ -32,16 +32,7 @@ export class UserComponent implements OnInit {
   }
 
   getPosts(postsList, userId){
-      const posts = [];
-      for (const post of postsList) {
-        if (post.userId === userId) {
-          posts.push(post);
-        }
-      }
-      return posts;
-      // Якщо написати так, як нижче, то функція повертає масив булевих значень:
-      // return postsList.map(post => post.userId === userId);  ==> отримуємо ([true, true, true, false, false, ...])
-      // Не знаю, в чому причина, але на чистому js таке ніби має працювати...
+    return postsList.filter(post => post.userId === userId);
   }
 
 }

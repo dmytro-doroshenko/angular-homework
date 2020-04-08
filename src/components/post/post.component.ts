@@ -21,20 +21,12 @@ export class PostComponent implements OnInit {
   constructor() {
     setTimeout(() => this.postComments = this.getComments(this.comments, this.post.id), 2000);
     // Теж не обійшлось без таймера, вибивало помилку, як у випадку з постами)
-
   }
 
   ngOnInit(): void {
   }
 
   getComments(commentsList, postId) {
-    const comments = [];
-    for (const comment of commentsList) {
-      if (comment.postId === postId) {
-        comments.push(comment);
-      }
-    }
-    return comments;
-    // Ситуація аналогічна, як і з постами
+    return commentsList.filter(comment => comment.postId === postId);
   }
 }
