@@ -1,0 +1,29 @@
+import { Component } from '@angular/core';
+import {PostModel} from '../../models/PostModel';
+import {PostService} from '../../app/services/post.service';
+import {UserModel} from '../../models/UserModel';
+import {CommentModel} from '../../models/CommentModel';
+import {UserService} from '../../app/services/user.service';
+import {CommentService} from '../../app/services/comment.service';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  title = 'lesson2-homework';
+  users: UserModel[];
+  posts: PostModel[];
+  comments: CommentModel[];
+
+
+  constructor(private userService: UserService,
+              private postService: PostService,
+              private commentService: CommentService
+  ) {
+    this.userService.getUsers().subscribe(users => this.users = users);
+    this.postService.getPosts().subscribe(posts => this.posts = posts);
+    this.commentService.getComments().subscribe(comments => this.comments = comments);
+  }
+}

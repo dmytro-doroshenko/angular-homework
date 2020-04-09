@@ -1,9 +1,6 @@
 <div class="user">
-  <div>
-    <p>{{user.id}}</p>
-    <h3>{{user.name}}</h3>
-    <p>{{user.username}}</p>
-    <p>{{user.website}}</p>
-  </div>
-  <app-post *ngFor="let p of userPosts" [post]="p" [comments]="comments"></app-post>
+    <p>ID: {{user.id}}</p>
+    <h3>Name: {{user.name}}</h3>
+    <p>Username: {{user.username}}</p>
+    <p>email: {{user.email}}</p>
 </div>
