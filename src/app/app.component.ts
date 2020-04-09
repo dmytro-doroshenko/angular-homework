@@ -22,8 +22,16 @@ export class AppComponent {
               private postService: PostService,
               private commentService: CommentService
   ) {
-    this.userService.getUsers().subscribe(users => this.users = users);
-    this.postService.getPosts().subscribe(posts => this.posts = posts);
-    this.commentService.getComments().subscribe(comments => this.comments = comments);
+    this.userService.getUsers().subscribe(users => {
+      this.postService.getPosts().subscribe(posts => {
+        this.commentService.getComments().subscribe(comments => this.comments = comments);
+        this.posts = posts;
+      });
+      this.users = users;
+    });
+  }
+
+  getUserPosts(postsList, userId){
+    return postsList.filter(post => post.userId === userId);
   }
 }

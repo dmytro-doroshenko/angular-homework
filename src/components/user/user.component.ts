@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UserModel} from '../../models/UserModel';
 import {PostModel} from '../../models/PostModel';
 import {CommentModel} from '../../models/CommentModel';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-user',
@@ -21,7 +22,7 @@ export class UserComponent implements OnInit {
 
   userPosts: PostModel[];
 
-  constructor() {
+  constructor(private http: HttpClient) {
     setTimeout(() => this.userPosts = this.getPosts(this.posts, this.user.id), 2000);
     // Прийшлося поставити тайм-аут, оскільки функція запускається раніше, ніж встигає прийти інформація із запиту і вилітає помилка
     // типу "Cannot read property 'id' of undefined". Я так розумію, в майбутньому ми будемо вчитись виправляти подібні помилки
