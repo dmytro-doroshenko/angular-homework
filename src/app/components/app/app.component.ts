@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import {PostModel} from '../../models/PostModel';
-import {PostService} from '../../app/services/post.service';
-import {UserModel} from '../../models/UserModel';
-import {CommentModel} from '../../models/CommentModel';
-import {UserService} from '../../app/services/user.service';
-import {CommentService} from '../../app/services/comment.service';
+import {PostModel} from '../../../models/PostModel';
+import {PostService} from '../../services/post.service';
+import {UserModel} from '../../../models/UserModel';
+import {CommentModel} from '../../../models/CommentModel';
+import {UserService} from '../../services/user.service';
+import {CommentService} from '../../services/comment.service';
 
 @Component({
   selector: 'app-root',

@@ -11,7 +11,10 @@ export class CommentService {
 
   constructor(private http: HttpClient) { }
 
-  getComments(): Observable<CommentModel[]> {
+  getComments(postId): Observable<CommentModel[]> {
+    if (postId) {
+      return this.http.get<CommentModel[]>(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`);
+    }
     return this.http.get<CommentModel[]>('https://jsonplaceholder.typicode.com/comments');
   }
 }
