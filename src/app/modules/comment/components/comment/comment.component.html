@@ -1,0 +1,14 @@
+<div class="comment">
+  <div class="comment_info">
+    <p>comment #{{comment.id}}</p>
+    <p>to post #{{comment.postId}}</p>
+
+  </div>
+  <div class="comment_body">
+    <p>by user {{comment.email}}</p>
+    <h4>{{comment.name}}</h4>
+    <p>{{comment.body}}</p>
+    <button (click)="navigate(comment)">Show post</button>
+  </div>
+</div>
+

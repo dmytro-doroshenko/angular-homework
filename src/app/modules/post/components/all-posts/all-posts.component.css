@@ -1,0 +1,11 @@
+.flexbox{
+  display: flex;
+}
+
+.posts_area {
+  width: 60%;
+}
+
+.comments_area {
+  width: 40%;
+}

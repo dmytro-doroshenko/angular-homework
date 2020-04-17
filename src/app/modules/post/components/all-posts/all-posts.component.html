@@ -1,0 +1,12 @@
+<div class="flexbox">
+  <div class="posts_area">
+    <h2 class="title">Posts:</h2>
+
+    <div>
+      <app-post *ngFor="let singlePost of posts" [post]="singlePost"></app-post>
+    </div>
+  </div>
+  <div class="comments_area">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+
+<div>
+  <h2 class="title">Comments:</h2>
+  <div class="comments_list">
+    <app-comment *ngFor="let singleComment of comments" [comment]="singleComment"></app-comment>
+  </div>
+  <div class="selected_post_area">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+

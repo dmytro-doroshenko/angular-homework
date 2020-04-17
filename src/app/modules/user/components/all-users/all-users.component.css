@@ -1,0 +1,16 @@
+.users_page {
+  display: flex;
+}
+
+.users_list {
+  display: flex;
+  /*justify-content: center;*/
+  flex-wrap: wrap;
+  width: 70%;
+}
+
+.user_info {
+  border: 1px solid grey;
+  padding: 5px;
+  width: 30%;
+}

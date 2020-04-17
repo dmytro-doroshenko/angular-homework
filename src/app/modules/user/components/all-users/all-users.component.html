@@ -1,0 +1,13 @@
+<h2 class="title">Users:</h2>
+<div class="users_page">
+  <div class="users_list">
+    <app-user *ngFor="let singleUser of users" [user]="singleUser" (forwardSelectedUserData)="catchSelectedUserData($event)"></app-user>
+  </div>
+  <div class="user_info">
+    <app-selected-user [user]="selectedUser"></app-selected-user>
+  </div>
+
+</div>
+
+
+<router-outlet></router-outlet>

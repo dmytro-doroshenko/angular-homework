@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.comment {
+  margin: 5px;
+  padding: 10px;
+  background-color: lightblue;
+  border: 1px solid black;
+  display: flex;
+}
+
+.comment_info{
+  min-width: 120px;
+}
+
+.comment_body {
+  padding-left: 10px;
+}
