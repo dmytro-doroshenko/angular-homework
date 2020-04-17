@@ -1,0 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.selected_post{
+  margin: 5px auto;
+  padding: 5px;
+}
+
+.post {
+  margin: 5px auto;
+  padding: 5px;
+  background-color: lightgray;
+  border: 1px solid black;
+  display: flex;
+}
+
+.post_info{
+  min-width: 120px;
+}
