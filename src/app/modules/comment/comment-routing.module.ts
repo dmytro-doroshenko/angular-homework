@@ -10,10 +10,10 @@ import {SelectedPostComponent} from '../post/components/selected-post/selected-p
 const routes: Routes = [
   {path: '', children: [
       {path: 'all', component: AllCommentsComponent, resolve: {allComments: CommentResolverService}, children: [
-          {path: 'post', component: PostComponent, resolve: {post: PostResolverService}}
+          {path: ':commentId/post', component: SelectedPostComponent, resolve: {post: PostResolverService}}
         ]},
       {path: ':postId/comments', component: AllCommentsComponent, resolve: {allComments: CommentResolverService}, children: [
-          {path: 'post', component: SelectedPostComponent, resolve: {post: PostResolverService}}
+          {path: ':commentId/post', component: SelectedPostComponent, resolve: {post: PostResolverService}}
         ]},
     ]},
 ];

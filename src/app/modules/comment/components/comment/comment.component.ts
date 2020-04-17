@@ -18,7 +18,7 @@ export class CommentComponent implements OnInit {
   }
 
   navigate(comment: CommentModel) {
-    this.router.navigate([ 'post' ],
+    this.router.navigate([ comment.id, 'post' ],
       {
         relativeTo: this.activatedRoute,
         queryParams: {postId: comment.postId}
