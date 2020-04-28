@@ -1,10 +1,5 @@
-import { Component } from '@angular/core';
-import {PostModel} from '../models/PostModel';
-import {PostService} from './services/post.service';
-import {UserModel} from '../models/UserModel';
-import {CommentModel} from '../models/CommentModel';
-import {UserService} from './services/user.service';
-import {CommentService} from './services/comment.service';
+import {Component, Input} from '@angular/core';
+import {ToDoModel} from "../models/toDoModel";
 
 @Component({
   selector: 'app-root',
@@ -12,18 +7,25 @@ import {CommentService} from './services/comment.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lesson1-homework';
-  users: UserModel[];
-  posts: PostModel[];
-  comments: CommentModel[];
 
+  all_toDos: ToDoModel[] = [];
 
-  constructor(private userService: UserService,
-              private postService: PostService,
-              private commentService: CommentService
-  ) {
-    this.userService.getUsers().subscribe(users => this.users = users);
-    this.postService.getPosts().subscribe(posts => this.posts = posts);
-    this.commentService.getComments().subscribe(comments => this.comments = comments);
+  constructor() {
+
+  }
+
+  catchToDos(toDosList: ToDoModel[]) {
+    this.all_toDos = toDosList;
+    console.log(this.all_toDos)
   }
 }
+
+// Task:
+// Создаем свой список заданий
+// Модель:
+//   id, titile (нзвание),body (подробности), type (type -типа срочно , не срочно, через 3 года)
+// Создать форму, которая будет создавать "задание".
+//   Создать компоненту под задание.
+//   Создать компоненту со всеми заданиями.
+//   Задания сохранять  в отдельном массиве (где угодно)
+// В єтом задании нет работы с API так что не ищите его)))))

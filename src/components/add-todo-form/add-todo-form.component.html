@@ -1,0 +1,23 @@
+<p>add-todo-form works!</p>
+<form [formGroup]="addTodo" class="add_todo_form" (ngSubmit)="addTodoAction(addTodo)">
+  <div>
+    <label>Title: </label>
+    <input  [formControl]="todoTitle"/>
+  </div>
+  <div>
+    <label>Description:</label>
+    <textarea rows="4" cols="30" [formControl]="todoBody"></textarea>
+  </div>
+  <div>
+    <p>Select type:</p>
+    <input type="radio" id="immediately" name="type_of_todo" value="immediately" [formControl]="todoType"/>
+    <label for="immediately">Do it now!</label>
+    <br />
+    <input type="radio" id="not_immediately" name="type_of_todo" value="not_immediately" [formControl]="todoType"/>
+    <label for="not_immediately">Do it later!</label>
+    <br />
+    <input type="radio" id="not_immediately_at_all" name="type_of_todo" value="not_immediately_at_all" [formControl]="todoType"/>
+    <label for="not_immediately_at_all">Do it whenever you want!</label>
+  </div>
+  <input type="submit" value="Add Todo" [disabled]="addTodo.invalid"/>
+</form>

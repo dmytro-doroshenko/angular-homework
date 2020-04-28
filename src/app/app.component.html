@@ -1,5 +1,4 @@
-<app-user *ngFor="let u of users" [user]="u" [posts]="posts" [comments]="comments"></app-user>
-<!--<app-post *ngFor="let p of posts" [post]="p"></app-post>-->
-<!--<app-comment *ngFor="let c of comments" [comment]="c"></app-comment>-->
+<h1>Homework 6. Forms</h1>
+<app-add-todo-form (forwardTodoList)="catchToDos($event)"></app-add-todo-form>
 
-
+<app-all-todos [toDosArray]="all_toDos"></app-all-todos>
