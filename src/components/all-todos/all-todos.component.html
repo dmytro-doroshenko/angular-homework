@@ -1,11 +1,13 @@
 <div *ngIf="toDosArray.length">
-  <h4>Description:</h4>
-  <span class="immediately">DO IT NOW!!!!!!</span>
-  <br/>
-  <span class="not_immediately">The task is not urgent</span>
-  <br/>
-  <span class="not_immediately_at_all">This task can be completed in three years</span>
+  <div>
+    <h4>Description:</h4>
+    <span class="immediately">DO IT NOW!!!!!!</span>
+    <br/>
+    <span class="not_immediately">The task is not urgent</span>
+    <br/>
+    <span class="not_immediately_at_all">This task can be completed in three years</span>
+  </div>
+  <h2>My tasks:</h2>
+  <hr />
+  <app-todo *ngFor="let toDO of toDosArray" [toDo]="toDO"></app-todo>
 </div>
-<h2>My tasks:</h2>
-<hr />
-<app-todo *ngFor="let toDO of toDosArray" [toDo]="toDO"></app-todo>
