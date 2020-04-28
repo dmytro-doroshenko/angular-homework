@@ -36,6 +36,9 @@ export class AddTodoFormComponent implements OnInit {
       type: form.value.todoType
     })
     this.forwardTodoList.emit(this.todoList)
+    this.todoTitle.reset()
+    this.todoBody.reset()
+    this.todoType.reset()
   }
 
   ngOnInit(): void {
