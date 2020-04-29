@@ -9,7 +9,7 @@ import {ToDoModel} from "../../models/toDoModel";
 export class AllTodosComponent implements OnInit {
 
   @Input()
-  toDosArray: ToDoModel[];
+  all_toDos: ToDoModel[];
 
   constructor() { }
 

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ToDoModel} from "../../models/toDoModel";
 
@@ -9,7 +9,8 @@ import {ToDoModel} from "../../models/toDoModel";
 })
 export class AddTodoFormComponent implements OnInit {
 
-  todoList: ToDoModel[] = [];
+  @Input()
+  todoList: ToDoModel[];
 
   addTodo: FormGroup;
 
@@ -17,28 +18,28 @@ export class AddTodoFormComponent implements OnInit {
   todoBody: FormControl = new FormControl('', [Validators.required]);
   todoType: FormControl = new FormControl('', [Validators.required]);
 
-  @Output()
-  forwardTodoList = new EventEmitter();
 
   constructor() {
     this.addTodo = new FormGroup({
-      todoTitle: this.todoTitle,
-      todoBody: this.todoBody,
-      todoType: this.todoType
+      title: this.todoTitle,
+      body: this.todoBody,
+      type: this.todoType,
     })
   }
 
-  addTodoAction(form: FormGroup) {
+  addTodoAction() {
     this.todoList.push({
       id: +this.todoList.length + 1,
-      title: form.value.todoTitle,
-      body: form.value.todoBody,
-      type: form.value.todoType
+      title: this.todoTitle.value,
+      body: this.todoBody.value,
+      type: this.todoType.value,
+      isCompleted: false
     })
-    this.forwardTodoList.emit(this.todoList)
-    this.todoTitle.reset()
-    this.todoBody.reset()
-    this.todoType.reset()
+    const toDoString = JSON.stringify(this.todoList);
+    localStorage.setItem('toDosList', toDoString);
+    this.todoTitle.reset();
+    this.todoBody.reset();
+    this.todoType.reset();
   }
 
   ngOnInit(): void {

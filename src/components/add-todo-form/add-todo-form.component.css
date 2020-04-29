@@ -1,6 +1,44 @@
-.add_todo_form {
-  margin: 5px;
-  padding: 10px;
-  width: 300px;
+#title, #body{
+  padding: 4px;
+  width: 100%;
+  background: #B4E7CE;
   border: 1px solid black;
+  border-radius: 2px;
+}
+
+#type {
+  padding-left: 1rem;
+}
+
+.checkmark {
+  margin-right: 4px;
+  background-color: #B4E7CE;
+  border: 1px solid black;
+}
+
+.button_area{
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#button {
+  padding: 8px;
+  border: 1px solid black;
+  background: #59A96A;
+  color: white;
+  font-weight: bolder;
+  transition: all 0.4s;
+}
+
+#button:disabled, #button:disabled:hover {
+  background: gray;
+  color: lightgray;
+  cursor: not-allowed;
+}
+
+
+#button:hover {
+  background: #474A2C;
+  cursor: pointer;
 }

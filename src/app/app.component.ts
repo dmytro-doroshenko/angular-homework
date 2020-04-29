@@ -8,24 +8,20 @@ import {ToDoModel} from "../models/toDoModel";
 })
 export class AppComponent {
 
-  all_toDos: ToDoModel[] = [];
+  all_toDos_string: string = localStorage.getItem('toDosList');
 
-  constructor() {
+  all_toDos: ToDoModel[] = JSON.parse(this.all_toDos_string) || [];
 
-  }
-
-  catchToDos(toDosList: ToDoModel[]) {
-    this.all_toDos = toDosList;
-    console.log(this.all_toDos)
-  }
+  constructor() {}
 }
 
 // Task:
 // Создаем свой список заданий
 // Модель:
-//   id, titile (нзвание),body (подробности), type (type -типа срочно , не срочно, через 3 года)
+//   id, title (нзвание),body (подробности), type (type -типа срочно , не срочно, через 3 года)
 // Создать форму, которая будет создавать "задание".
 //   Создать компоненту под задание.
 //   Создать компоненту со всеми заданиями.
 //   Задания сохранять  в отдельном массиве (где угодно)
-// В єтом задании нет работы с API так что не ищите его)))))
+// В этом задании нет работы с API так что не ищите его)))))
+// зберігати список в localStorage та додати кнопку (відмічати зроблені завдання)

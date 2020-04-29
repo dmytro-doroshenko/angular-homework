@@ -1,11 +1,10 @@
-.immediately {
-  background: red;
+#task_done {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #110F08;
+  cursor: pointer;
 }
 
-.not_immediately {
-  background: yellow;
-}
-
-.not_immediately_at_all {
-  background: green;
+.checkbox_area {
+  padding: 10px;
 }

@@ -1,5 +1,9 @@
-<div [className]="toDo.type">
-  <h4>{{toDo.id}}. {{toDo.title}}</h4>
-  <p>{{toDo.body}}</p>
-  <hr />
+<div class="toDo_card d_flex justify_content_between align_items_center" [ngClass]="[toDoIsCompleted ? 'completed' : toDo.type]" >
+  <div>
+    <h3>{{toDo.id}}. {{toDo.title}}</h3>
+    <p>{{toDo.body}}</p>
+  </div>
+  <div class="checkbox_area">
+    <input type="checkbox" id="task_done" [checked]="toDo.isCompleted" (click)="changeStatus(toDo.id)" title="Check when complete"/>
+  </div>
 </div>
