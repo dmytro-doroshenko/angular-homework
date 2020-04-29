@@ -10,10 +10,24 @@
   <div>
     <p>Select type:</p>
     <div id="type" class="container">
-      <input type="radio" id="immediately" class="checkmark" name="type_of_todo" value="immediately" [formControl]="todoType"/>
+      <input
+        type="radio"
+        id="immediately"
+        class="checkmark"
+        name="type_of_todo"
+        value="immediately"
+        [formControl]="todoType"
+      />
       <label for="immediately">Do it now!</label>
       <br />
-      <input type="radio" class="checkmark"  id="not_immediately" name="type_of_todo" value="not_immediately" [formControl]="todoType"/>
+      <input
+        type="radio"
+        class="checkmark"
+        id="not_immediately"
+        name="type_of_todo"
+        value="not_immediately"
+        [formControl]="todoType"
+      />
       <label for="not_immediately">Do it later!</label>
       <br />
       <input
