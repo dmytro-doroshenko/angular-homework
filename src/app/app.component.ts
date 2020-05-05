@@ -35,7 +35,7 @@ export class AppComponent {
         if (error.status === 404) {
           this.dataService.setError(`User with id ${this.userId} not found`);
         } else {
-          this.dataService.setError(error);
+          this.dataService.setError(`${error.name}: ${error.message}`);
         }
         this.dataService.setCurrentUser(null);
         this.dataService.setLoadingStatus(false);
