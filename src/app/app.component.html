@@ -1,34 +1,11 @@
-<div class="header">
-  <h1>Homework 6. Forms</h1>
-</div>
-<div class="toDo_body">
-  <div>
-    <app-add-todo-form [todoList]="all_toDos"></app-add-todo-form>
-    <div class="add_toDo_card" *ngIf="all_toDos.length">
-      <h3 class="text_center">Legend:</h3>
-      <div class="d_flex py-1 align_items_center">
-        <div class="square immediately"></div>
-        <p>DO IT NOW!!!!!!</p>
-      </div>
-      <div class="d_flex py-1 align_items_center">
-        <div class="square not_immediately"></div>
-        <p>The task is not urgent</p>
-      </div>
-      <div class="d_flex py-1 align_items_center">
-        <div class="square not_immediately_at_all"></div>
-        <p>This task can be completed in three years</p>
-      </div>
-      <div class="d_flex py-1 align_items_center">
-        <div class="square completed"></div>
-        <p>Good job! This task is done</p>
-      </div>
-    </div>
-  </div>
-  <div class="w_100" *ngIf="all_toDos.length">
-    <h2 class="text_center">Tasks to do:</h2>
-    <app-all-todos [all_toDos]="all_toDos"></app-all-todos>
-  </div>
+<h1>homework 7</h1>
 
-</div>
+<form (ngSubmit)="getUserInfo()">
+  <label for="userID">Enter user ID: </label>
+  <input type="number" id="userID" min="0" [(ngModel)]="userId" name="userID"/>
+  <input type="submit" value="OK"/>
+</form>
 
+<div *ngIf="isLoading">Loading...</div>
 
+<router-outlet></router-outlet>

@@ -1,5 +1,7 @@
 import {Component, Input} from '@angular/core';
-import {ToDoModel} from "../models/toDoModel";
+import {UserService} from './services/user.service';
+import {Router} from '@angular/router';
+import {DataService} from './services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -8,20 +10,42 @@ import {ToDoModel} from "../models/toDoModel";
 })
 export class AppComponent {
 
-  all_toDos_string: string = localStorage.getItem('toDosList');
+  userId: number;
+  isLoading: boolean;
 
-  all_toDos: ToDoModel[] = JSON.parse(this.all_toDos_string) || [];
+  constructor(
+    private router: Router,
+    private userService: UserService,
+    private dataService: DataService,
+  ) {
+    this.dataService.getLoadingStatus().subscribe(status => this.isLoading = status);
+  }
 
-  constructor() {}
+  getUserInfo() {
+    this.dataService.setLoadingStatus(true);
+    this.userService.getUser(this.userId).subscribe(
+      user => {
+        this.dataService.setCurrentUser(user);
+        this.router.navigate(['user', this.userId]);
+        this.dataService.setLoadingStatus(false);
+      },
+      error => {
+        this.router.navigate(['error', error.status]);
+        this.dataService.setCurrentUser(null);
+        if (error.status === 404) {
+          this.dataService.setError(`User with id ${this.userId} not found`);
+        } else {
+          this.dataService.setError(error);
+        }
+        this.dataService.setCurrentUser(null);
+        this.dataService.setLoadingStatus(false);
+      }
+    );
+  }
 }
 
 // Task:
-// Создаем свой список заданий
-// Модель:
-//   id, title (нзвание),body (подробности), type (type -типа срочно , не срочно, через 3 года)
-// Создать форму, которая будет создавать "задание".
-//   Создать компоненту под задание.
-//   Создать компоненту со всеми заданиями.
-//   Задания сохранять  в отдельном массиве (где угодно)
-// В этом задании нет работы с API так что не ищите его)))))
-// зберігати список в localStorage та додати кнопку (відмічати зроблені завдання)
+// на главной компоненте сделать форму с инпутом, в него нужно вводить id юзера. По этому id ваш сервис обращяется к
+// jsonplaceholder и достает конкретного юзера делая переход по роуту и показывая его на отдельной странице. Сделать
+// guard который позволит запретить переход если такого id юзера ,который вы ввели, не существует.
+//   Создать DataService, в который записывать всех юзеров, которых вы выбирали по номеру.
